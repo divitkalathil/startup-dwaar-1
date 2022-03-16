@@ -1,18 +1,37 @@
-import React, { useReducer, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./Signup.css";
-import OTPInput, { ResendOTP } from "otp-input-react";
 
-const StartupDetails = ({ setPage, startupState, startupDispatch }) => {
-  const navigate = useNavigate();
-
+const StartupDetails = ({
+  setPage,
+  startupState,
+  startupDispatch,
+  allDetails,
+}) => {
   const addStartupDetail = (e, target) => {
     // e.preventDefault();
     console.log("Adding data...");
     startupDispatch({ type: target, payload: e.target.value });
   };
 
-  console.log(startupState);
+  //validates if all the fields are filled and OTP is also submitted
+  const validateForm = () => {
+    let filterData = [];
+    filterData = Object.keys(startupState).filter((key) => {
+      return startupState[key] === "";
+    });
+
+    console.log(filterData);
+
+    if (filterData.length === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  //submit the entire form
+  const handleSubmit = () => {
+    console.log(allDetails);
+  };
 
   return (
     <div className="form-main">
@@ -22,6 +41,7 @@ const StartupDetails = ({ setPage, startupState, startupDispatch }) => {
           <span className="fg-danger"> *</span>
         </label>
         <input
+          value={startupState.name}
           type={"text"}
           name="startup-name"
           id="startup-name"
@@ -37,12 +57,13 @@ const StartupDetails = ({ setPage, startupState, startupDispatch }) => {
           <span className="fg-danger"> *</span>
         </label>
         <input
+          value={startupState.registeredName}
           type={"text"}
-          name="registered-name"
-          id="registered-name"
+          name="startup-name"
+          id="startup-name"
           className="input-field"
-          placeholder="Enter the resgistered name of Startup"
-          onChange={(e) => addStartupDetail(e, "registeredName")}
+          placeholder="Enter the name of your Startup"
+          onChange={(e) => addStartupDetail(e, "regName")}
           required
         />
       </div>
@@ -52,6 +73,7 @@ const StartupDetails = ({ setPage, startupState, startupDispatch }) => {
           <span className="fg-danger"> *</span>
         </label>
         <input
+          value={startupState.website}
           type={"text"}
           name="website"
           id="website"
@@ -69,6 +91,7 @@ const StartupDetails = ({ setPage, startupState, startupDispatch }) => {
           <span className="fg-danger"> *</span>
         </label>
         <select
+          value={startupState.sector}
           name="sector"
           id="sector"
           className="input-field"
@@ -90,6 +113,7 @@ const StartupDetails = ({ setPage, startupState, startupDispatch }) => {
           <span className="fg-danger"> *</span>
         </label>
         <input
+          value={startupState.inceptionDate}
           type={"date"}
           name="inception"
           id="inception"
@@ -100,10 +124,11 @@ const StartupDetails = ({ setPage, startupState, startupDispatch }) => {
       </div>
       <div className="form-item">
         <label htmlFor="city" className="text-md">
-          Date of Inception
+          City
           <span className="fg-danger"> *</span>
         </label>
         <input
+          value={startupState.city}
           type={"text"}
           name="city"
           id="city"
@@ -119,13 +144,14 @@ const StartupDetails = ({ setPage, startupState, startupDispatch }) => {
           <span className="fg-danger"> *</span>
         </label>
         <select
+          value={startupState.stage}
           name="stage"
           id="stage"
           className="input-field"
           onChange={(e) => addStartupDetail(e, "stage")}
           required
         >
-          <option value="" disabled selected>
+          <option value="" disabled>
             Choose your option
           </option>
           <option value={"ideation"}>Ideation</option>
@@ -140,6 +166,7 @@ const StartupDetails = ({ setPage, startupState, startupDispatch }) => {
           <span className="fg-danger"> *</span>
         </label>
         <input
+          value={startupState.pitchDeck}
           type="file"
           name="pitchDeck"
           id="pitchDeck"
@@ -154,6 +181,7 @@ const StartupDetails = ({ setPage, startupState, startupDispatch }) => {
           <span className="fg-danger"> *</span>
         </label>
         <textarea
+          value={startupState.idea}
           rows={5}
           name="idea"
           id="idea"
@@ -179,14 +207,15 @@ const StartupDetails = ({ setPage, startupState, startupDispatch }) => {
       </div>
       <div className="form-item">
         <input
-          type={"submit"}
+          disabled={!validateForm()}
+          type={"button"}
           name="submit-btn"
           id="submit-btns"
-          className="input-field btn-bg-primary fg-white"
+          className={`input-field ${
+            validateForm() ? "btn-bg-primary" : "btn-primary"
+          } fg-white`}
           value={"Submit"}
-          onSubmit={(e) => {
-            navigate("/");
-          }}
+          onClick={() => handleSubmit()}
           required
         />
       </div>

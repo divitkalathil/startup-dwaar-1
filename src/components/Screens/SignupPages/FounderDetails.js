@@ -18,6 +18,7 @@ const FounderDetails = ({ setPage, personalState, personalDispatch }) => {
     personalDispatch({ type: target, payload: e.target.value });
   };
 
+  //validates if all the fields are filled and OTP is also submitted
   const validateForm = () => {
     let filterData = [];
     filterData = Object.keys(personalState).filter((key) => {
@@ -26,7 +27,7 @@ const FounderDetails = ({ setPage, personalState, personalDispatch }) => {
 
     console.log(filterData);
 
-    if (filterData.length === 0) {
+    if (filterData.length === 0 && OTP.length === 4) {
       return true;
     } else {
       return false;
@@ -73,7 +74,7 @@ const FounderDetails = ({ setPage, personalState, personalDispatch }) => {
           <span className="fg-danger"> *</span>
         </label>
         <input
-          value={personalState.emailID}
+          value={personalState.emailId}
           type={"email"}
           name="email-id"
           id="email-id"
@@ -218,7 +219,6 @@ const FounderDetails = ({ setPage, personalState, personalDispatch }) => {
           // secure
           placeholder={[0, 0, 0, 0]}
         />
-        {/* <ResendOTP onResendClick={() => console.log("Resend clicked")} /> */}
       </div>
 
       <div className="form-item">
@@ -234,16 +234,16 @@ const FounderDetails = ({ setPage, personalState, personalDispatch }) => {
       </div>
       <div className="form-item">
         <input
+          disabled={!validateForm()}
           type={"submit"}
           name="submit-btn"
           id="submit-btns"
-          className="input-field btn-bg-primary fg-white"
+          className={`input-field ${
+            validateForm() ? "btn-bg-primary" : "btn-primary"
+          } fg-white`}
           value={"Next"}
-          // onSubmit={(e) => e.preventDefault()}
           onClick={() => {
-            validateForm()
-              ? setPage((prev) => prev + 1)
-              : alert("Please Fill all the mandatory fields");
+            setPage((prev) => prev + 1);
           }}
           required
         />

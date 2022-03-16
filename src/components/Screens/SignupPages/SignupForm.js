@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import FounderDetails from "./FounderDetails";
 import StartupDetails from "./StartupDetails";
 
@@ -79,8 +79,7 @@ const startupReducer = (state, action) => {
 
 const SignupForm = () => {
   const [page, setPage] = useState(1);
-
-  const navigate = useNavigate();
+  const [allDetails, setAllDetails] = useState({});
 
   const [personalState, personalDispatch] = useReducer(
     personalReducer,
@@ -92,32 +91,13 @@ const SignupForm = () => {
     startupDetails
   );
 
-  console.log(personalState);
-  console.log(startupState);
+  useEffect(() => {
+    setAllDetails({ ...personalState, ...startupState });
+  }, [setAllDetails, personalState, startupState]);
 
-  const displayPage = () => {
-    if (page === 1)
-      return (
-        <FounderDetails
-          setPage={setPage}
-          //   personalDetials={personalDetials}
-          //   personalReducer={personalReducer}
-          personalDispatch={personalDispatch}
-          personalState={personalState}
-        />
-      );
-    else if (page === 2)
-      return (
-        <StartupDetails
-          setPage={setPage}
-          //   startupDetails={startupDetails}
-          //   startupReducer={startupReducer}
-          startupState={startupState}
-          startupDispatch={startupDispatch}
-        />
-      );
-  };
+  const handleSubmit = () => {};
 
+  console.log(allDetails);
   return (
     <div className="form-container bg-white">
       <div className="text-xxl align-center subhead fg-dark">
@@ -136,13 +116,27 @@ const SignupForm = () => {
         style={{ width: page === 1 ? "50%" : "100%" }}
       ></div>
       <hr className="mb" />
-      <form>
-        <div className="form-main">
-          <div>{displayPage()}</div>
-        </div>
-      </form>
+      <div>
+        {page === 1 ? (
+          <FounderDetails
+            setPage={setPage}
+            //   personalDetials={personalDetials}
+            //   personalReducer={personalReducer}
+            personalDispatch={personalDispatch}
+            personalState={personalState}
+          />
+        ) : (
+          <StartupDetails
+            setPage={setPage}
+            //   startupDetails={startupDetails}
+            //   startupReducer={startupReducer}
+            startupState={startupState}
+            startupDispatch={startupDispatch}
+            allDetails={allDetails}
+          />
+        )}
+      </div>
     </div>
   );
 };
-
 export default SignupForm;

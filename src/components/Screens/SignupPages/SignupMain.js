@@ -37,7 +37,7 @@ const personalReducer = (state, action) => {
   }
 };
 
-const FounderDetails = () => {
+const SignupMain = () => {
   const navigate = useNavigate();
   const [OTP, setOTP] = useState("");
   const [enableOTPInput, setEnableOTPInput] = useState(false);
@@ -84,6 +84,8 @@ const FounderDetails = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(personalState);
+    // navigate("/");
   };
 
   return (
@@ -358,4 +360,4 @@ const FounderDetails = () => {
   );
 };
 
-export default FounderDetails;
+export default SignupMain;

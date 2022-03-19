@@ -12,10 +12,11 @@ import JobSeeker from "./components/Screens/JobSeeker";
 import Home from "./components/Screens/Home/Home";
 import Footer from "./components/Screens/Footer/Footer";
 import PreSignup from "./components/Screens/SignupPages/Signup";
-import SignupForm from "./components/Screens/SignupPages/SignupForm";
-import FounderDetails from "./components/Screens/SignupPages/FounderDetails";
-import StartupDetails from "./components/Screens/SignupPages/StartupDetails";
+// import SignupForm from "./components/Screens/SignupPages/SignupForm";
+// import FounderDetails from "./components/Screens/SignupPages/FounderDetails";
+// import StartupDetails from "./components/Screens/SignupPages/StartupDetails";
 import SignupMain from "./components/Screens/SignupPages/SignupMain";
+import Login from "./components/Screens/LoginPages/Login";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="/mentor" element={<Mentor />} />
           <Route path="/job-seeker" element={<JobSeeker />} />
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<PreSignup />} />
           <Route path="signup/:user" element={<SignupMain />}></Route>
         </Routes>

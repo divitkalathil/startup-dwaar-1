@@ -3,7 +3,7 @@ import React from "react";
 const Founder = () => {
   
   return  <div>
-{ <header>
+{/* { <header>
 <div class="page-banner home-banner mb-5">
       <div class="slider-wrapper">
         <div class="owl-carousel hero-carousel">
@@ -56,10 +56,10 @@ const Founder = () => {
           </div>
         </div>
       </div>
-    </div> 
+    </div>  */}
 
 
-  </main> }
+  {/* </main> } */}
 
 
   </div>;

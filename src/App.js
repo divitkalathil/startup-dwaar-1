@@ -15,6 +15,7 @@ import PreSignup from "./components/Screens/SignupPages/Signup";
 import SignupForm from "./components/Screens/SignupPages/SignupForm";
 import FounderDetails from "./components/Screens/SignupPages/FounderDetails";
 import StartupDetails from "./components/Screens/SignupPages/StartupDetails";
+import SignupMain from "./components/Screens/SignupPages/SignupMain";
 
 const App = () => {
   return (
@@ -29,7 +30,7 @@ const App = () => {
           <Route path="/job-seeker" element={<JobSeeker />} />
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<PreSignup />} />
-          <Route path="signup/:user" element={<SignupForm />}></Route>
+          <Route path="signup/:user" element={<SignupMain />}></Route>
         </Routes>
       </Router>
       <Footer />

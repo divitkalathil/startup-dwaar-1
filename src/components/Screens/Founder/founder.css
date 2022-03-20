@@ -1,0 +1,80 @@
+.dashboard{
+    background-color: #007bff;
+    color: white !important;
+}
+.dash-title{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.video-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+    display: block; 
+	width: auto; 
+  }
+.Videos{
+    text-align: center;
+    text-emphasis: bold;
+}
+.App{
+    text-align: center;
+}
+  
+  .video-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    margin-left: 19rem;
+  }
+  
+.faq_main{
+    font-size: 1rem;
+    margin-bottom: 5rem;
+}
+.faq_header{
+    margin-left: 0.5rem;
+}
+summary {
+    font-size: 1.25rem;
+    font-weight: 600;
+    background-color: #fff;
+    color: #333;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    outline: none;
+    border-radius: 0.25rem;
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+  }
+  .faq__content{
+    margin-left: 1.5rem;
+    padding-left: 0.5rem;
+  }
+  details > summary::after {
+    position: absolute;
+    content: "+";
+    right: 20px;
+  }
+  details[open] > summary::after {
+    position: absolute;
+    content: "-";
+    right: 20px;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details[open] summary ~ * {
+    animation: sweep .5s ease-in-out;
+  }
+  @keyframes sweep {
+    0%    {opacity: 0; margin-top: -10px}
+    100%  {opacity: 1; margin-top: 0px}
+  }

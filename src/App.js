@@ -4,19 +4,18 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./App.css";
 
-import FounderForm from "./components/Screens/Founder/FounderForm";
-import Incubator from "./components/Screens/Incubator";
-import Investor from "./components/Screens/Investor/InvestorForm";
-import Mentor from "./components/Screens/Mentor";
-import JobSeeker from "./components/Screens/JobSeeker";
-import Home from "./components/Screens/Home/Home";
-import Footer from "./components/Screens/Footer/Footer";
 import PreSignup from "./components/Screens/SignupPages/Signup";
-// import SignupForm from "./components/Screens/SignupPages/SignupForm";
-// import FounderDetails from "./components/Screens/SignupPages/FounderDetails";
-// import StartupDetails from "./components/Screens/SignupPages/StartupDetails";
 import SignupMain from "./components/Screens/SignupPages/SignupMain";
 import Login from "./components/Screens/LoginPages/Login";
+import FounderDashboard from "./components/Screens/Founder/FounderDashboard";
+import InvestorDashboard from "./components/Screens/Investor/InvestorDashboard";
+import IncubatorDashboard from "./components/Screens/Incubator/IncubatorDashboard";
+import MentorDashboard from "./components/Screens/Mentor/MentorDashboard";
+import JobSeekerDashboard from "./components/Screens/JobSeeker/JobSeekerDashboard";
+import Home from "./components/Screens/Home/Home";
+import InvestorForm from "./components/Screens/Investor/InvestorForm";
+
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   return (
@@ -24,18 +23,19 @@ const App = () => {
       <Router>
         <NavigationBar />
         <Routes>
-          <Route path="/founder" element={<FounderForm />} />
-          <Route path="/investor" element={<Investor />} />
-          <Route path="/incubator" element={<Incubator />} />
-          <Route path="/mentor" element={<Mentor />} />
-          <Route path="/job-seeker" element={<JobSeeker />} />
           <Route path="/" element={<Home />} />
+          <Route path="/founder" element={<FounderDashboard />} />
+          <Route path="/investor" element={<InvestorDashboard />} />
+          <Route path="/incubator" element={<IncubatorDashboard />} />
+          <Route path="/mentor" element={<MentorDashboard />} />
+          <Route path="/job-seeker" element={<JobSeekerDashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<PreSignup />} />
-          <Route path="signup/:user" element={<SignupMain />}></Route>
+          <Route path="signup/:user/" element={<SignupMain />} />
+          <Route path="signup/:user/join" element={<InvestorForm />} />
         </Routes>
+        <Footer />
       </Router>
-      <Footer />
     </div>
   );
 };

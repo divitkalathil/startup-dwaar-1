@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./App.css";
 
-import Founder from "./components/Screens/Founder";
+import FounderForm from "./components/Screens/Founder/FounderForm";
 import Incubator from "./components/Screens/Incubator";
-import Investor from "./components/Screens/Investor";
+import Investor from "./components/Screens/Investor/InvestorForm";
 import Mentor from "./components/Screens/Mentor";
 import JobSeeker from "./components/Screens/JobSeeker";
 import Home from "./components/Screens/Home/Home";
@@ -24,7 +24,7 @@ const App = () => {
       <Router>
         <NavigationBar />
         <Routes>
-          <Route path="/founder" element={<Founder />} />
+          <Route path="/founder" element={<FounderForm />} />
           <Route path="/investor" element={<Investor />} />
           <Route path="/incubator" element={<Incubator />} />
           <Route path="/mentor" element={<Mentor />} />

@@ -17,5 +17,5 @@
   flex: 1 1 100%;
   margin: -10px !important;
   display: flex;
-  background: linear-gradient(to right, #7a6efb, #33374b);
+  background: url(login-page-bg.webp);
 }

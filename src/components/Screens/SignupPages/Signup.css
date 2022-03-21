@@ -19,7 +19,9 @@
 .fill-color {
   display: flex;
   padding: 3px 0px;
-
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  background: linear-gradient(to right, #a29afb, #3f3986);
   /* width: 80%; */
 }
 
@@ -37,8 +39,11 @@
 }
 
 .btn {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   padding: 10px 40px;
   border-radius: 10px;
+  border: none !important;
   box-shadow: 0px 0px 2px 0.5px rgba(0, 0, 0, 0.5) !important;
 }
 
@@ -59,6 +64,7 @@
 }
 
 .form-item {
+  position: relative;
   flex: 1 1 40% !important;
   margin: 10px;
   /* background-color: red; */
@@ -67,7 +73,11 @@
   /* justify-content: space-around; */
 }
 
+li {
+  list-style-type: none;
+}
 .input-field {
+  width: 100%;
   flex: 1 1 30% !important;
   width: auto !important;
   height: auto !important;
@@ -87,4 +97,20 @@ input[type="radio"] {
   border: 0px !important;
   margin-top: 15px !important;
   vertical-align: middle !important;
+}
+
+.margin-top-minus {
+  margin-top: -10px;
+}
+
+.icon {
+  cursor: pointer;
+  color: grey;
+}
+
+.conditions {
+  padding: 5px;
+  margin: 5px;
+  position: absolute;
+  z-index: 10;
 }

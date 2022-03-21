@@ -7,7 +7,7 @@ import "./App.css";
 import PreSignup from "./components/Screens/SignupPages/Signup";
 import SignupMain from "./components/Screens/SignupPages/SignupMain";
 import Login from "./components/Screens/LoginPages/Login";
-import FounderDashboard from "./components/Founder/FounderDashboard";
+import FounderDashboard from "./components/Screens/Founder/FounderDashboard";
 import InvestorDashboard from "./components/Screens/Investor/InvestorDashboard";
 import IncubatorDashboard from "./components/Screens/Incubator/IncubatorDashboard";
 import MentorDashboard from "./components/Screens/Mentor/MentorDashboard";

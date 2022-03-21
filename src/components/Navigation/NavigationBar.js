@@ -30,7 +30,9 @@ const NavigationBar = () => {
       </div>
 
       <div className="authentication-container">
-        <a className="nav-bar-option text-lg fg-primary">Login</a>
+        <Link to="/login">
+          <a className="nav-bar-option text-lg fg-primary">Login</a>
+        </Link>
         <Link to={"/signup"}>
           <a className="nav-bar-option text-lg fg-primary">Signup</a>
         </Link>

@@ -34,7 +34,8 @@ a:hover {
   padding: 10px 28px;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
-  border-width: 0px;
+  border-width: 1px;
+  border-color: #fff;
 }
 
 .btn-primary:disabled,
@@ -44,7 +45,7 @@ a:hover {
 }
 
 .btn-bg-primary {
-  background-color: #6739b7;
+  background-color: #7a6efb;
 }
 
 .btn-bg-primary:hover {
@@ -74,6 +75,12 @@ hr {
   width: 100%;
 }
 
+vr {
+  margin: 10px;
+  border-left: 1px solid grey;
+  height: 200px;
+}
+
 .align-center {
   left: 0;
   right: 0;
@@ -96,6 +103,10 @@ hr {
 
 .ml {
   margin-inline-start: 10px !important;
+}
+
+.flex-box {
+  display: flex;
 }
 
 h1,
@@ -250,7 +261,7 @@ a.fg-accent:focus {
 }
 
 .fg-secondary {
-  color: #6d728b !important;
+  color: #f0eefd !important;
 }
 
 a.fg-secondary:hover,

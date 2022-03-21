@@ -91,7 +91,7 @@ const SignupMain = () => {
   return (
     <div className="form-container bg-white">
       <div className="text-xxl align-center subhead fg-dark">
-        Welcome to Startup Dwaar"
+        Welcome to Startup Dwaar
       </div>
       <hr className="mb" />
       <form onSubmit={(e) => handleSubmit(e)}>
@@ -332,7 +332,7 @@ const SignupMain = () => {
               type={"button"}
               name="go-back"
               id="go-back"
-              className="input-field btn-bg-secondary fg-primary"
+              className="input-field btn btn-bg-secondary fg-primary"
               value={"Go Back"}
               onClick={() => navigate(-1)}
               required
@@ -345,7 +345,7 @@ const SignupMain = () => {
               name="submit-btn"
               id="submit-btns"
               className={`input-field ${
-                validateForm() ? "btn-bg-primary" : "btn-primary"
+                validateForm() ? "btn btn-bg-primary" : "btn-primary"
               } fg-white`}
               value={"Submit"}
               // onClick={() => {

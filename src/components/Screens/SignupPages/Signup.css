@@ -52,19 +52,19 @@
 
 .form-main {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  /* background-color: yellow; */
+  /* align-items: flex-start; */
+  /* justify-content: space-between; */
+  /* backgHeound-color: yellow; */
   flex-wrap: wrap;
 }
 
 .form-item {
-  flex: 1 1 40%;
+  flex: 1 1 40% !important;
   margin: 10px;
   /* background-color: red; */
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  /* justify-content: space-around; */
 }
 
 .input-field {

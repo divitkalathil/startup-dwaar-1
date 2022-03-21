@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { InputBox, SelectBox } from "../InputBox/InputBox";
-import "../InputBox/InputBox.css";
-import "../InputBox/Form.css";
+import {
+  InputBox,
+  SelectBox,
+} from "../../CustomReactComponents/CustomInputBox/InputBox.js";
+
+import "../../CustomReactComponents/CustomInputBox/InputBox.css";
+import "../../CustomReactComponents/CustomInputBox/Form.css";
 import "../SignupPages/Signup.css";
 import SucessfullStartup from "./SucessfullStartup";
 

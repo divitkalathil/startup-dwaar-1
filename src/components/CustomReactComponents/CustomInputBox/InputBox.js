@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./InputBox.css";
-import "../SignupPages/Signup.css";
+
+import "../../Screens/SignupPages/Signup.css";
 
 export const InputBox = (props) => {
   const [isFocus, setIsFocus] = useState(false);

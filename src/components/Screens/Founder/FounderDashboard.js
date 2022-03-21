@@ -1,5 +1,4 @@
 import React from "react";
-import "./founder.css";
 import "./FounderDashboard.css";
 
 import YoutubeEmbed from "../../assets/vids/YoutubeEmbed.js";

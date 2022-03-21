@@ -83,7 +83,7 @@ const Login = () => {
                 // disabled={!validateForm()}
                 name="submit-btn"
                 id="submit-btns"
-                className={"btn btn-bg-primary fg-white"}
+                className={"btn-bg-primary fg-white"}
 
                 // onClick={() => {
                 //   // setPage((prev) => prev + 1);

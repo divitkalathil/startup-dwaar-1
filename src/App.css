@@ -49,6 +49,8 @@ a:hover {
 }
 
 .btn-bg-primary:hover {
+  -webkit-transition: all 0.3s ease !important;
+  transition: all 0.3s ease !important;
   cursor: pointer;
   color: #fff !important;
   background-color: #3f3986;
@@ -62,6 +64,8 @@ a:hover {
 }
 
 .btn-bg-secondary:hover {
+  -webkit-transition: all 0.3s ease !important;
+  transition: all 0.3s ease !important;
   cursor: pointer;
   color: #fff !important;
   background-color: #3f3986;
@@ -79,6 +83,18 @@ vr {
   margin: 10px;
   border-left: 1px solid grey;
   height: 200px;
+}
+
+.slider-btn {
+  appearance: none;
+  width: 10%;
+  height: 30%;
+  margin: 10px;
+  border-radius: 100px;
+  /* border: 1px solid black; */
+  background-color: lightgrey;
+  /* background: url(login-page-bg.webp); */
+  color: #4f39aa;
 }
 
 .align-center {
@@ -450,18 +466,6 @@ a.fg-light:focus {
   -webkit-box-shadow: none;
   cursor: pointer;
   box-shadow: none;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #2f89fc;
-  border-color: #2f89fc;
-}
-
-.btn-accent {
-  color: #fff;
-  background-color: #f52e91;
-  border-color: #f52e91;
 }
 
 .btn-accent:hover {

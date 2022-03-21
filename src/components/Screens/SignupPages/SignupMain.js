@@ -1,7 +1,8 @@
-import React, { useReducer, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Signup.css";
 import OTPInput, { ResendOTP } from "otp-input-react";
+import { FaInfo } from "react-icons/fa";
 
 const personalDetials = {
   firstName: "",
@@ -43,6 +44,14 @@ const SignupMain = () => {
   const [enableOTPInput, setEnableOTPInput] = useState(false);
   const [password, setPassword] = useState("");
 
+  //checks wether form submitted is valid or not
+  const [isFormValid, setIsFormValid] = useState(true);
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [isPasswordValid, setIsPasswordValid] = useState(true);
+
+  //to show user if hover over "i" icon on UI
+  const [passwordCondition, setPasswordCondition] = useState(false);
+
   const [personalState, personalDispatch] = useReducer(
     personalReducer,
     personalDetials
@@ -54,19 +63,21 @@ const SignupMain = () => {
 
   const addPersonalDetail = (e, target) => {
     // e.preventDefault();
-    console.log("Adding data...");
     personalDispatch({ type: target, payload: e.target.value });
   };
 
   //validates if all the fields are filled and OTP is also submitted
-  const validateForm = () => {
+
+  // useEffect(() => {
+  //   setIsFormValid(checkAllFields());
+  // }, []);
+
+  const checkAllFields = () => {
     let filterData = [];
     filterData = Object.keys(personalState).filter((key) => {
       return personalState[key] === "";
     });
-
     console.log(filterData);
-
     if (filterData.length === 0 && OTP.length === 4) {
       return true;
     } else {
@@ -74,6 +85,34 @@ const SignupMain = () => {
     }
   };
 
+  const validateForm = () => {
+    if (!validateEmailId(personalState.emailId)) {
+      console.log("Email Inccorect");
+      setIsEmailValid(false);
+      return false;
+    } else {
+      setIsEmailValid(true);
+    }
+    if (!validatePassword(personalState.password)) {
+      console.log("Password incorrct");
+
+      setIsPasswordValid(false);
+      return false;
+    } else {
+      setIsEmailValid(true);
+    }
+    return true;
+  };
+
+  const validateEmailId = (mail) => {
+    return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail);
+  };
+
+  const validatePassword = (pass) => {
+    return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/.test(
+      pass
+    );
+  };
   //check if user has entered correct password again
   const checkPassword = (e) => {
     if (personalState.password === password) {
@@ -84,8 +123,9 @@ const SignupMain = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(personalState);
-    // navigate("/");
+    validateForm() ? navigate("/") : console.log("form not validated");
+
+    //
   };
 
   return (
@@ -134,8 +174,8 @@ const SignupMain = () => {
               <span className="fg-danger"> *</span>
             </label>
             <input
-              value={personalState.emailId}
-              type={"email"}
+              // value={personalState.emailId}
+              type={"text"}
               name="email-id"
               id="email-id"
               className="input-field"
@@ -143,6 +183,14 @@ const SignupMain = () => {
               onChange={(e) => addPersonalDetail(e, "email")}
               required
             />
+
+            {!isEmailValid ? (
+              <label className="fg-danger text-xs margin-top-minus" s>
+                please enter valid email id
+              </label>
+            ) : (
+              <></>
+            )}
           </div>
 
           <div className="form-item">
@@ -282,13 +330,31 @@ const SignupMain = () => {
           </div>
 
           <div className="form-item">
-            <label htmlFor="password" className="text-md">
-              Enter your password
-              <span className="fg-danger"> *</span>
-            </label>
+            <span>
+              <label htmlFor="password" className="text-md">
+                Enter your password
+                <span className="fg-danger"> *</span>
+              </label>
+              <FaInfo
+                className="icon"
+                onMouseOver={() => setPasswordCondition(true)}
+                onMouseOut={() => setPasswordCondition(false)}
+              />
+
+              {passwordCondition ? (
+                <ul typeof="" className="conditions text-xs bg-secondary">
+                  <li>- password should be between 8 to 15 characters</li>
+                  <li>- at least one lowercase letter</li>
+                  <li>- at least one numeric letter</li>
+                  <li>- at least one special letter</li>
+                </ul>
+              ) : (
+                <></>
+              )}
+            </span>
             <input
               value={password}
-              type={"text"}
+              type={"password"}
               name="password"
               id="password"
               className="input-field"
@@ -296,6 +362,13 @@ const SignupMain = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
+            {!isPasswordValid ? (
+              <label className="fg-danger text-xs margin-top-minus" s>
+                password does not match the criteria
+              </label>
+            ) : (
+              <></>
+            )}
           </div>
           <div className="form-item">
             <label htmlFor="confirmPassword" className="text-md">
@@ -316,10 +389,7 @@ const SignupMain = () => {
             />
 
             {!checkPassword() ? (
-              <label
-                className="fg-danger text-xs"
-                style={{ margin: "-10px 0px 0px 0px" }}
-              >
+              <label className="fg-danger text-xs margin-top-minus" s>
                 password does not match
               </label>
             ) : (
@@ -340,12 +410,12 @@ const SignupMain = () => {
           </div>
           <div className="form-item">
             <input
-              disabled={!validateForm()}
+              disabled={!checkAllFields()}
               type={"submit"}
               name="submit-btn"
               id="submit-btns"
               className={`input-field ${
-                validateForm() ? "btn btn-bg-primary" : "btn-primary"
+                checkAllFields() ? "btn btn-bg-primary" : "btn-primary"
               } fg-white`}
               value={"Submit"}
               // onClick={() => {

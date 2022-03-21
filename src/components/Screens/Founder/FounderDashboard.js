@@ -1,7 +1,7 @@
 import React from "react";
 import "./FounderDashboard.css";
 
-import YoutubeEmbed from "../../assets/vids/YoutubeEmbed.js";
+import YoutubeEmbed from "../../../assets/vids/YoutubeEmbed.js";
 
 const FounderDashboard = () => {
   return (

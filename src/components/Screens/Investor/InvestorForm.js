@@ -389,7 +389,7 @@ const InvestorForm = () => {
               className="input-field
               btn-bg-secondary fg-primary"
               value={"Go Back"}
-              onClick={() => setPage((prev) => prev - 1)}
+              onClick={() => setPage((prev) => (prev === 1 ? prev : prev - 1))}
               required
             />
           </div>

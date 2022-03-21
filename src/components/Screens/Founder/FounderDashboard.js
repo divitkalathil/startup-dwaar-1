@@ -7,20 +7,19 @@ const FounderDashboard = () => {
   return (
     <div>
       <div className="page-section">
-        <div className="container dashboard">
+        <div className="container dashboard bg-primary">
           <div className="text-center">
             <h1 className="dash-title">
               Services we provide for Entrepreneurs
             </h1>
             <h2>See what can we do for your Business</h2>
           </div>
-
           <div className="row justify-content-center">
             <div className="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
               <div className="text-center img-border">
                 <div className="img-fluid mb-4">
                   <img
-                    src={require("../../assets/img/investors.jpg")}
+                    src={require("../../../assets/img/investors.jpg")}
                     alt=""
                     height="160px"
                     width="220px"
@@ -33,7 +32,7 @@ const FounderDashboard = () => {
               <div className="text-center">
                 <div className="img-fluid mb-4">
                   <img
-                    src={require("../../assets/img/incubators.jpg")}
+                    src={require("../../../assets/img/incubators.jpg")}
                     alt=""
                     height="160px"
                     width="220px"
@@ -47,7 +46,7 @@ const FounderDashboard = () => {
               <div className="text-center">
                 <div className="img-fluid mb-4">
                   <img
-                    src={require("../../assets/img/mentors.jpg")}
+                    src={require("../../../assets/img/mentors.jpg")}
                     alt=""
                     height="160px"
                     width="220px"
@@ -61,7 +60,7 @@ const FounderDashboard = () => {
               <div className="text-center">
                 <div className="img-fluid mb-4">
                   <img
-                    src={require("../../assets/img/jobs.jpg")}
+                    src={require("../../../assets/img/jobs.jpg")}
                     alt=""
                     height="160px"
                     width="220px"
